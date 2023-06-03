@@ -1,0 +1,11 @@
+﻿@model Post
+
+<div class="card mb-4">
+    
+    <div class="card-body">
+        <div class="small text-muted">@Model.CreateDate</div>
+        <h2 class="card-title h4">@Model.Title</h2>
+        <p class="card-text">@Model.Content</p>
+        <a class="btn btn-primary" href="/Home/BlogPost/@Model.Id">Daha fazlasını Oku→</a>
+    </div>
+</div>

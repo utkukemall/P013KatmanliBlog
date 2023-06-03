@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using P013KatmanliBlog.Core.Entities;
+using P013KatmanliBlog.MVCUI.Utils;
 using P013KatmanliBlog.Service.Abstract;
 
 namespace P013KatmanliBlog.MVCUI.Areas.Admin.Controllers
@@ -37,18 +38,23 @@ namespace P013KatmanliBlog.MVCUI.Areas.Admin.Controllers
         // POST: AppUsersController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateAsync(AppUser collection)
+        public async Task<ActionResult> CreateAsync(AppUser collection, IFormFile? ProfilePhoto)
         {
             try
             {
+                if (ProfilePhoto is not null)
+                {
+                    collection.ProfilePhoto = await FileHelper.FileLoaderAsync(ProfilePhoto);
+                }
                 await _service.AddAsync(collection);
                 await _service.SaveAsync();
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                ModelState.AddModelError("", "Hata Oluştu!");
             }
+            return View();
         }
 
         // GET: AppUsersController/Edit/5
@@ -61,18 +67,28 @@ namespace P013KatmanliBlog.MVCUI.Areas.Admin.Controllers
         // POST: AppUsersController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> EditAsync(int id, AppUser collection)
+        public async Task<ActionResult> EditAsync(int id, AppUser collection, IFormFile? ProfilePhoto, bool? resmiSil)
         {
             try
             {
+                if (resmiSil is not null && resmiSil == true)
+                {
+                    FileHelper.FileRemover(collection.ProfilePhoto);
+                    collection.ProfilePhoto = "";
+                }
+                if (ProfilePhoto is not null)
+                {
+                    collection.ProfilePhoto = await FileHelper.FileLoaderAsync(ProfilePhoto);
+                }
                 _service.Update(collection);
                 await _service.SaveAsync();
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                ModelState.AddModelError("", "Hata Oluştu!");
             }
+                return View();
         }
 
         // GET: AppUsersController/Delete/5
@@ -85,12 +101,12 @@ namespace P013KatmanliBlog.MVCUI.Areas.Admin.Controllers
         // POST: AppUsersController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, AppUser collection)
+        public async Task<ActionResult> Delete(int id, AppUser collection)
         {
             try
             {
                 _service.Delete(collection);
-                _service.Save();
+                await _service.SaveAsync();
                 return RedirectToAction(nameof(Index));
             }
             catch
