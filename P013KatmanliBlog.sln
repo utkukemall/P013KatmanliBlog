@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P013KatmanliBlog.MVCUI", "P013KatmanliBlog.MVCUI\P013KatmanliBlog.MVCUI.csproj", "{058E2BB8-93A7-482C-BC93-43F5E56CD384}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P013KatmanliBlog.MVCUI", "P013KatmanliBlog.MVCUI\P013KatmanliBlog.MVCUI.csproj", "{058E2BB8-93A7-482C-BC93-43F5E56CD384}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P013KatmanliBlog.Core", "P013KatmanliBlog.Core\P013KatmanliBlog.Core.csproj", "{1CD77381-672A-4CCA-9494-68FA81F81C96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P013KatmanliBlog.Core", "P013KatmanliBlog.Core\P013KatmanliBlog.Core.csproj", "{1CD77381-672A-4CCA-9494-68FA81F81C96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P013KatmanliBlog.Data", "P013KatmanliBlog.Data\P013KatmanliBlog.Data.csproj", "{8E4D06FD-BCBA-4B5B-AF3D-5C4C8714D429}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P013KatmanliBlog.Data", "P013KatmanliBlog.Data\P013KatmanliBlog.Data.csproj", "{8E4D06FD-BCBA-4B5B-AF3D-5C4C8714D429}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P013KatmanliBlog.Service", "P013KatmanliBlog.Service\P013KatmanliBlog.Service.csproj", "{E5ED1FDE-3BDC-4433-8C20-24C5FC784791}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P013KatmanliBlog.Service", "P013KatmanliBlog.Service\P013KatmanliBlog.Service.csproj", "{E5ED1FDE-3BDC-4433-8C20-24C5FC784791}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P013KatmanliBlog.WebAPI", "P013KatmanliBlog.WebAPI\P013KatmanliBlog.WebAPI.csproj", "{788C6A90-C228-49EF-BE13-BC2D69E8EAEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{E5ED1FDE-3BDC-4433-8C20-24C5FC784791}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5ED1FDE-3BDC-4433-8C20-24C5FC784791}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5ED1FDE-3BDC-4433-8C20-24C5FC784791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{788C6A90-C228-49EF-BE13-BC2D69E8EAEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{788C6A90-C228-49EF-BE13-BC2D69E8EAEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{788C6A90-C228-49EF-BE13-BC2D69E8EAEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{788C6A90-C228-49EF-BE13-BC2D69E8EAEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
