@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using P013KatmanliBlog.Core.Entities;
 using P013KatmanliBlog.MVCUI.Utils;
@@ -6,7 +7,7 @@ using P013KatmanliBlog.Service.Abstract;
 
 namespace P013KatmanliBlog.MVCUI.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("Admin"), Authorize(Policy = "AdminPolicy")]
     public class AppUsersController : Controller
     {
         private readonly IService<AppUser> _service;

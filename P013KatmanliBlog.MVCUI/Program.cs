@@ -1,6 +1,7 @@
 using P013KatmanliBlog.Data;
 using P013KatmanliBlog.Service.Abstract;
 using P013KatmanliBlog.Service.Concrete;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,21 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DatabaseContext>();
 
 builder.Services.AddTransient(typeof(IService<>), typeof(Service<>));
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
+{
+    x.LoginPath = "/Admin/Login"; 
+    x.LogoutPath = "/Admin/Logout";
+    x.AccessDeniedPath = "/AccessDenied"; 
+    x.Cookie.Name = "Administrator"; 
+    x.Cookie.MaxAge = TimeSpan.FromDays(1); 
+});
+
+builder.Services.AddAuthorization(x =>
+{
+    x.AddPolicy("AdminPolicy", p => p.RequireClaim("Role", "Admin")); 
+    x.AddPolicy("UserPolicy", p => p.RequireClaim("Role", "User")); 
+});
 
 var app = builder.Build();
 
@@ -22,6 +38,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
