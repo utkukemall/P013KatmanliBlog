@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Category>
+
+@{
+    foreach (var Kategori in Model.Where(c => c.IsActive && c.IsTopMenu))
+    {
+        <li><a class="nav-link text-dark" href="/Categories/Index/@Kategori.Id">@Kategori.Name</a></li>
+    }
+}

@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P013KatmanliBlog.Service", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P013KatmanliBlog.WebAPI", "P013KatmanliBlog.WebAPI\P013KatmanliBlog.WebAPI.csproj", "{788C6A90-C228-49EF-BE13-BC2D69E8EAEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P013KatmanliBlog.WebAPIUsing", "P013KatmanliBlog.WebAPIUsing\P013KatmanliBlog.WebAPIUsing.csproj", "{4A033AA0-6EA1-4B35-83D4-AEDC7A3E93D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P013KatmanliBlog.WebAPIUsing", "P013KatmanliBlog.WebAPIUsing\P013KatmanliBlog.WebAPIUsing.csproj", "{4A033AA0-6EA1-4B35-83D4-AEDC7A3E93D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,8 +1,51 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<Post>
+
+@{
+    ViewData["Title"] = "Ana Sayfa";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="fw-bolder">Görev 13!</h1>
+            <p class="lead mb-0">
+                Görev 13 - Katmanlı Mimari İle Blog Sitesi Yapımı - 3 FrontEnd
+            </p>
+            <p>
+                Utku Kemal ÇİÇEK
+            </p>
+        </div>
+    </div>
+
+
+</header>
+<div class="container">
+    <div class="row">
+        <!-- Blog entries-->
+        <div class="col">
+            <!-- Nested row for non-featured blog posts-->
+            <div class="row">
+                <div class="col-lg-6">
+                    @foreach (var item in Model)
+                    {
+                        if (item.Id % 2 == 0)
+                            continue;
+                        <partial name="_PostPartial" model="item" />
+                    }
+                </div>
+
+                <div class="col-lg-6">
+                    @foreach (var item in Model)
+                    {
+                        if (item.Id % 2 == 1)
+                            continue;
+                        <partial name="_PostPartial" model="item" />
+                    }
+                </div>
+            </div>
+            <!-- Pagination-->
+
+
+        </div>
+    </div>
 </div>
